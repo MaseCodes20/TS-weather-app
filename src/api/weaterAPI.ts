@@ -8,7 +8,7 @@ export const getWeather = async (lat: number, lon: number, timezone: string) => 
       `${BASE_URL}?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime&timezone=${timezone}`
     )
 
-    console.log(response.data)
+    return response.data
   } catch (error) {
     console.log(error)
   }

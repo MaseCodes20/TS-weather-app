@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { getWeather } from './api/weaterAPI'
+import Weather from './components/Weather'
+
+const queryClient = new QueryClient()
 
 function App() {
   getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone)
 
   return (
-    <div>
-      <h1 className='text-3xl font-bold'>Weather App!</h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Weather />
+    </QueryClientProvider>
   )
 }
 
