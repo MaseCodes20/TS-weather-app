@@ -13,8 +13,8 @@ export const getWeather = async (lat: number, lon: number, timezone: string) => 
 
     return {
       current: parseCurrentWeather(data),
-      // daily: parseDailyWeather(data),
-      // hourly: parseHourlyWeather(data)
+      daily: parseDailyWeather(data),
+      hourly: parseHourlyWeather(data),
     }
   } catch (error) {
     console.log(error)

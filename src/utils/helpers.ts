@@ -1,6 +1,7 @@
 export type CurrentWeather = {
   current_weather: CurrentWeatherOBJ
   daily: Daily
+  hourly: Hourly
 }
 
 type CurrentWeatherOBJ = {
@@ -19,6 +20,11 @@ type Daily = {
   temperature_2m_min: number[]
   time: number[]
   weathercode: number[]
+}
+
+type Hourly = {
+  temperature_2m: number[]
+  time: number[]
 }
 
 export const parseCurrentWeather = ({ current_weather, daily }: CurrentWeather) => {
@@ -43,6 +49,24 @@ export const parseCurrentWeather = ({ current_weather, daily }: CurrentWeather) 
   }
 }
 
-export const parseDailyWeather = () => {}
+export const parseDailyWeather = ({ daily }: CurrentWeather) => {
+  return daily.time.map((time, index) => {
+    return {
+      timestamp: time * 1000,
+      iconCode: daily.weathercode[index],
+      maxTemp: Math.round(daily.temperature_2m_max[index]),
+      lowTemp: Math.round(daily.apparent_temperature_min[index]),
+    }
+  })
+}
 
-export const parseHourlyWeather = () => {}
+export const parseHourlyWeather = ({ hourly, current_weather }: CurrentWeather) => {
+  return hourly.time
+    .map((time, index) => {
+      return {
+        timestamp: time * 1000,
+        temp: Math.round(hourly.temperature_2m[index]),
+      }
+    })
+    .filter(({ timestamp }) => timestamp >= current_weather.time * 1000)
+}
