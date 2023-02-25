@@ -1,3 +1,5 @@
+import { ICON_MAP } from './iconMap'
+
 export type CurrentWeather = {
   current_weather: CurrentWeatherOBJ
   daily: Daily
@@ -69,4 +71,8 @@ export const parseHourlyWeather = ({ hourly, current_weather }: CurrentWeather) 
       }
     })
     .filter(({ timestamp }) => timestamp >= current_weather.time * 1000)
+}
+
+export const getIconUrl = (iconCode: string) => {
+  return `icons/${ICON_MAP.get(iconCode)}.svg`
 }
