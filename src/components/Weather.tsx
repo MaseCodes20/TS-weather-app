@@ -10,7 +10,7 @@ function Weather() {
       <div>
         <div className='w-[300px] h-[300px] bg-fuchsia-300 rounded-md p-3'>
           <p className='text-5xl m-2 font-bold'>
-            {data?.current_weather.temperature}
+            {data?.current.currentTemp}
             <span>&deg;</span>
           </p>
 
@@ -18,18 +18,14 @@ function Weather() {
             <div>
               <p>High</p>
               <p>
-                {Math.floor(
-                  data?.daily.apparent_temperature_max.reduce((a: number, b: number) => a + b, 0) / data?.daily.apparent_temperature_max.length
-                )}
+                {data?.current.highTemp}
                 <span>&deg;</span>
               </p>
             </div>
             <div>
               <p>Low</p>
               <p>
-                {Math.floor(
-                  data?.daily.apparent_temperature_min.reduce((a: number, b: number) => a + b, 0) / data?.daily.apparent_temperature_min.length
-                )}
+                {data?.current.lowTemp}
                 <span>&deg;</span>
               </p>
             </div>
