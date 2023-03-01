@@ -73,6 +73,6 @@ export const parseHourlyWeather = ({ hourly, current_weather }: CurrentWeather) 
     .filter(({ timestamp }) => timestamp >= current_weather.time * 1000)
 }
 
-export const getIconUrl = (iconCode: string) => {
+export const getIconUrl = (iconCode: number) => {
   return `icons/${ICON_MAP.get(iconCode)}.svg`
 }
