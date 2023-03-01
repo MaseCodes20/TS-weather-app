@@ -1,10 +1,10 @@
 export type WeatherDaTa = {
-  current: CurrentWeather
+  current: TCurrentWeather
   daily: DailyWeather[]
   hourly: HourlyWeather
 }
 
-export type CurrentWeather = {
+export type TCurrentWeather = {
   currentTemp: number
   highFeelsLike: number
   highTemp: number
