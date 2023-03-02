@@ -1,13 +1,13 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import Weather from './components/Weather'
+import DailyForecast from './components/DailyForecast'
 
 const queryClient = new QueryClient()
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Weather />
+      <DailyForecast />
 
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -1,6 +1,6 @@
 export type WeatherDaTa = {
   current: TCurrentWeather
-  daily: DailyWeather[]
+  daily: Daily[]
   hourly: HourlyWeather
 }
 
@@ -15,14 +15,14 @@ export type TCurrentWeather = {
   windSpeed: number
 }
 
-type DailyWeather = {
+export type Daily = {
   iconCode: number
   lowTemp: number
   maxTemp: number
   timestamp: number
 }
 
-type HourlyWeather = {
+export type HourlyWeather = {
   temp: number
   timestamp: number
 }
