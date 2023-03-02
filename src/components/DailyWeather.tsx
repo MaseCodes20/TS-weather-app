@@ -7,7 +7,7 @@ interface IDailyWeather {
 
 function DailyWeather({ daily }: IDailyWeather) {
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center gap-4'>
       {daily.slice(1).map(day => (
         <Weather key={day.timestamp} timestamp={day.timestamp} iconCode={day.iconCode} lowTemp={day.lowTemp} maxTemp={day.maxTemp} />
       ))}

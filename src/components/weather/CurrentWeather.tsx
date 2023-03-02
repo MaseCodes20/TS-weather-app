@@ -40,7 +40,7 @@ function CurrentWeather({ current }: ICurrentWeather) {
   const code: string = current.iconCode.toString()
   return (
     <div>
-      <div className='w-[300px] h-[300px] bg-fuchsia-300 rounded-md p-3'>
+      <div className='w-[300px] h-[300px] bg-fuchsia-300 rounded-md p-3 mr-4'>
         <h2>Today</h2>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>

@@ -9,13 +9,9 @@ interface IWeather {
 
 function Weather({ iconCode, maxTemp, lowTemp, timestamp }: IWeather) {
   return (
-    <div>
+    <div className='bg-fuchsia-300 rounded-md p-3'>
       <div className='flex items-center'>
         <img src={getIconUrl(iconCode)} alt='weather icon' className='h-12' />
-        {/* <p className='text-5xl m-2 font-bold'>
-  {currentTemp}
-  <span>&deg;</span>
-</p> */}
         <div className='ml-4'>
           <p>
             {maxTemp}
