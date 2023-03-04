@@ -37,18 +37,22 @@ function CurrentWeather({ current }: ICurrentWeather) {
     99: 'Thunder storm',
   }
 
-  const code: string = current.iconCode.toString()
   return (
     <div>
-      <div className='w-[300px] h-[300px] bg-fuchsia-300 rounded-md p-3 mr-4'>
+      <div className='w-[300px] bg-fuchsia-300 rounded-md p-3 mr-4'>
         <h2>Today</h2>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
-            <img src={getIconUrl(current.iconCode)} alt='weather icon' className='h-12' />
-            {/* <p className='text-5xl m-2 font-bold'>
-            {current.currentTemp}
-            <span>&deg;</span>
-          </p> */}
+            <div className='relative'>
+              <img src={getIconUrl(current.iconCode)} alt='weather icon' className='h-12' />
+              <div className='absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center'>
+                <p className='text-xl font-bold text-white'>
+                  {current.currentTemp}
+                  <span>&deg;</span>
+                </p>
+              </div>
+            </div>
+
             <div className='ml-4'>
               <p>
                 {current.highTemp}
