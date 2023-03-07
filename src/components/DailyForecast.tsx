@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query'
 import { getWeather } from '../api/weaterAPI'
 import DailyWeather from './DailyWeather'
+import HourlyWeather from './HourlyWeather'
 import CurrentWeather from './weather/CurrentWeather'
 
 function DailyForecast() {
@@ -10,9 +11,12 @@ function DailyForecast() {
   return (
     <div className='flex items-center justify-center min-h-screen'>
       {isSuccess && (
-        <>
-          <CurrentWeather current={data!.current} /> <DailyWeather daily={data!.daily} />{' '}
-        </>
+        <div>
+          <div className='flex items-center justify-center'>
+            <CurrentWeather current={data!.current} /> <DailyWeather daily={data!.daily} />{' '}
+          </div>
+          <HourlyWeather hourly={data!.hourly} />
+        </div>
       )}
     </div>
   )
