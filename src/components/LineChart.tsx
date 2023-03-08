@@ -21,7 +21,7 @@ function LineChart({ timestamps, temps }: ILineChart) {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: 'Weather app',
       },
     },
   }
@@ -32,8 +32,8 @@ function LineChart({ timestamps, temps }: ILineChart) {
       {
         label: 'Hourly weather',
         data: [...temps],
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: 'rgb(240 171 252)',
+        backgroundColor: 'rgba(240 171 252, 0.5)',
       },
     ],
   }

@@ -1,6 +1,4 @@
 import { THourly } from '../types/weatherType'
-import Hourly from './weather/Hourly'
-import { Line } from 'react-chartjs-2'
 import LineChart from './LineChart'
 
 interface IHourlyWeather {
@@ -12,7 +10,7 @@ function HourlyWeather({ hourly }: IHourlyWeather) {
   const temps = hourly.map(weather => weather.temp).slice(0, 25)
 
   return (
-    <div className=''>
+    <div className='flex items-center justify-center'>
       <LineChart timestamps={timestamps} temps={temps} />
     </div>
   )

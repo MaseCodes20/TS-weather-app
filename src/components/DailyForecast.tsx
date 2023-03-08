@@ -7,7 +7,6 @@ import CurrentWeather from './weather/CurrentWeather'
 function DailyForecast() {
   const { data, isSuccess } = useQuery('weather', () => getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone))
 
-  console.log(data)
   return (
     <div className='flex items-center justify-center min-h-screen'>
       {isSuccess && (
