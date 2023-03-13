@@ -1,5 +1,7 @@
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
+import { useRecoilValue } from 'recoil'
+import { themeState } from '../atoms/themeAtom'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
@@ -9,6 +11,8 @@ interface ILineChart {
 }
 
 function LineChart({ timestamps, temps }: ILineChart) {
+  const theme = useRecoilValue(themeState)
+
   const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { hour: 'numeric' })
 
   const timeLabels = timestamps.map((time: number) => DAY_FORMATTER.format(time))
@@ -18,10 +22,24 @@ function LineChart({ timestamps, temps }: ILineChart) {
     plugins: {
       legend: {
         position: 'top' as const,
+        labels: {
+          color: `${theme === 'dark' ? 'white' : 'black'}`,
+        },
       },
       title: {
         display: true,
         text: 'Weather app',
+        color: `${theme === 'dark' ? 'white' : 'black'}`,
+      },
+    },
+    scales: {
+      y: {
+        ticks: { color: `${theme === 'dark' ? 'white' : 'black'}`, beginAtZero: true },
+        grid: { color: `${theme === 'dark' ? 'white' : 'black'}` },
+      },
+      x: {
+        ticks: { color: `${theme === 'dark' ? 'white' : 'black'}`, beginAtZero: true },
+        grid: { color: `${theme === 'dark' ? 'white' : 'black'}` },
       },
     },
   }
