@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+import { themeState } from '../atoms/themeAtom'
 
 function DarkModeButton() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useRecoilState(themeState)
 
   const toggleTheme = () => {
     if (theme === 'light') {
