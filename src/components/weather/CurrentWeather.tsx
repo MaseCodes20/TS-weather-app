@@ -40,17 +40,11 @@ function CurrentWeather({ current }: ICurrentWeather) {
   return (
     <div>
       <div className='w-[300px] bg-fuchsia-300 rounded-md p-3 mr-4'>
-        <h2>Today</h2>
+        <h2 className='font-semibold text-[#046]'>Today</h2>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
-            <div className='relative'>
+            <div className='relative flex items-center'>
               <img src={getIconUrl(current.iconCode)} alt='weather icon' className='h-12' />
-              <div className='absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center'>
-                <p className='text-xl font-bold text-white'>
-                  {current.currentTemp}
-                  <span>&deg;</span>
-                </p>
-              </div>
             </div>
 
             <div className='ml-4'>
@@ -65,8 +59,16 @@ function CurrentWeather({ current }: ICurrentWeather) {
             </div>
           </div>
 
+          <div className='text-center text-white bg-[#046] p-2 rounded-md'>
+            {/* <p>Current</p> */}
+            <p className='text-xl font-bold '>
+              {current.currentTemp}
+              <span>&deg;</span>
+            </p>
+          </div>
+
           <div>
-            <p>Mostly {wdisplay[current.iconCode as keyof typeof wdisplay]}</p>
+            <p className='text-[#046]'>Mostly {wdisplay[current.iconCode as keyof typeof wdisplay]}</p>
             <p className='text-right'>☂️ {current.precip}%</p>
           </div>
         </div>

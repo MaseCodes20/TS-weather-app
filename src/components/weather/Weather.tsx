@@ -13,7 +13,7 @@ function Weather({ iconCode, maxTemp, lowTemp, timestamp }: IWeather) {
 
   return (
     <div className='bg-fuchsia-300 rounded-md p-3'>
-      <h2 className='font-semibold'>
+      <h2 className='font-semibold text-[#046]'>
         {weekday} {date}
       </h2>
       <div className='flex items-center'>
