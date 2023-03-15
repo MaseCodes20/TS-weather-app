@@ -8,10 +8,14 @@ interface IWeather {
 }
 
 function Weather({ iconCode, maxTemp, lowTemp, timestamp }: IWeather) {
-  const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { weekday: 'long' })
+  const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { weekday: 'long', day: 'numeric' })
+  const [date, weekday] = DAY_FORMATTER.format(timestamp).split(' ')
+
   return (
     <div className='bg-fuchsia-300 rounded-md p-3'>
-      <h2>{DAY_FORMATTER.format(timestamp)}</h2>
+      <h2 className='font-semibold'>
+        {weekday} {date}
+      </h2>
       <div className='flex items-center'>
         <img src={getIconUrl(iconCode)} alt='weather icon' className='h-12' />
         <div className='ml-4'>
